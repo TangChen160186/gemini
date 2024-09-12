@@ -3,24 +3,39 @@
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                      xmlns:cal="http://www.caliburnproject.org"
-                     WindowTransitionsEnabled="False" 
-                     Title="{Binding Title}" 
-                     Icon="{Binding Icon}" 
-                     Width="{Binding Width, Mode=TwoWay}" 
-                     Height="{Binding Height, Mode=TwoWay}" 
+                     WindowTransitionsEnabled="False"
+                     Title="{Binding Title}"
+                     Icon="{Binding Icon}"
+                     Width="{Binding Width, Mode=TwoWay}"
+                     Height="{Binding Height, Mode=TwoWay}"
                      WindowStartupLocation="CenterScreen"
                      WindowState="{Binding WindowState}"
                      ResizeMode="CanResizeWithGrip"
                      UseLayoutRounding="True"
                      Style="{DynamicResource MainWindowStyle}">
+
+    <mahapps:MetroWindow.LeftWindowCommands>
+
+        <mahapps:WindowCommands IsTextSearchCaseSensitive="True" IsTextSearchEnabled="True" VerticalAlignment="Stretch" >
+            <ContentControl cal:View.Model="{Binding MainMenu}" VerticalAlignment="Center" />
+        </mahapps:WindowCommands>
+    </mahapps:MetroWindow.LeftWindowCommands>
     <Window.Resources>
+
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary x:Name="ThemeDictionary" />
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <ContentControl cal:View.Model="{Binding Shell}" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <ContentControl cal:View.Model="{Binding Shell}" Grid.ColumnSpan="4" />
     </Grid>
 </mahapps:MetroWindow>

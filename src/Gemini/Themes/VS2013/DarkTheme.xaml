@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Controls/Merged.xaml" />
@@ -78,9 +78,8 @@
 
     <!-- Main Window → Caption -->
     <SolidColorBrush x:Key="MainWindowCaptionActiveBackground" Color="#2D2D30" />
-    <SolidColorBrush x:Key="MainWindowCaptionActiveText" Color="#999999" />
     <SolidColorBrush x:Key="MainWindowCaptionInactiveBackground" Color="#2D2D30" />
-    <SolidColorBrush x:Key="MainWindowCaptionInactiveText" Color="#99999999" />
+    <SolidColorBrush x:Key="MainWindowCaptionTextActiveBackground" Color="#424242" />
 
     <!-- Main Window → Caption → Button -->
     <SolidColorBrush x:Key="MainWindowCaptionButtonActiveGlyph" Color="#F1F1F1" />
@@ -94,7 +93,10 @@
     <SolidColorBrush x:Key="MainWindowCaptionButtonPressedBackground" Color="#007ACC" />
     <SolidColorBrush x:Key="MainWindowCaptionButtonPressedBorder" Color="#007ACC" />
     <SolidColorBrush x:Key="MainWindowCaptionButtonPressedGlyph" Color="#FFFFFF" />
-    
+
+    <!--TitleBar Commands-->
+    <SolidColorBrush x:Key="TitleBarSeparator" Color="#3d3d3d"/>
+
     <!-- ToolTip -->
     <SolidColorBrush x:Key="EnvironmentToolTipBackground" Color="#424245" />
     <SolidColorBrush x:Key="EnvironmentToolTipBorder" Color="#4D4D50" />

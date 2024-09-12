@@ -5,6 +5,7 @@ using System.Windows.Media;
 using Caliburn.Micro;
 using Gemini.Framework.Commands;
 using Gemini.Framework.Services;
+using Gemini.Modules.MainMenu;
 using Gemini.Properties;
 
 namespace Gemini.Modules.MainWindow.ViewModels
@@ -15,6 +16,9 @@ namespace Gemini.Modules.MainWindow.ViewModels
 #pragma warning disable 649
         [Import]
         private IShell _shell;
+
+        [Import]
+        private IMenu _mainMenu { get; set; }
 
         [Import]
         private IResourceManager _resourceManager;
@@ -83,6 +87,10 @@ namespace Gemini.Modules.MainWindow.ViewModels
             get { return _shell; }
         }
 
+        public IMenu MainMenu
+        {
+            get { return _mainMenu; }
+        }
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
             if (_icon == null)
