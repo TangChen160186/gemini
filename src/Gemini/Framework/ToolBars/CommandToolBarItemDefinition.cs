@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Input;
 using Caliburn.Micro;
 using Gemini.Framework.Commands;
@@ -16,10 +16,22 @@ namespace Gemini.Framework.ToolBars
             get { return _commandDefinition.ToolTip; }
         }
 
-        public override Uri IconSource
+        public override string PathData
         {
-            get { return _commandDefinition.IconSource; }
+            get
+            {
+                return _commandDefinition.PathData;
+            }
         }
+
+        public override string PathDataForegroundName
+        {
+            get
+            {
+                return _commandDefinition.PathDataForegroundName;
+            }
+        }
+
 
         public override KeyGesture KeyGesture
         {

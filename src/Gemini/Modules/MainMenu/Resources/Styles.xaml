@@ -2,11 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Gemini.Modules.MainMenu.Controls"
                     xmlns:converters="clr-namespace:Gemini.Modules.Shell.Converters"
-                    xmlns:b="clr-namespace:Gemini.Modules.MainMenu.Behaviors">
+                    xmlns:b="clr-namespace:Gemini.Modules.MainMenu.Behaviors"
+                    xmlns:converters1="clr-namespace:Gemini.Modules.MainMenu.Converters">
     <converters:NullableValueConverter x:Key="NullableValueConverter" />
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
-    <Image x:Key="MenuItemIcon" x:Shared="false" Source="{Binding IconSource, Converter={StaticResource NullableValueConverter}}" />
+    <converters1:StringToApplicationResourceConverter x:Key="ApplicationResourceConverter"/>
+    <Path x:Key="MenuItemIcon" Stretch="Fill" Fill="{Binding PathDataForegroundName,Converter={StaticResource ApplicationResourceConverter}}" x:Shared="false"
+          Data="{Binding PathData,Mode=OneWay}" />
 
     <Style x:Key="MenuItem" TargetType="{x:Type controls:MenuItemEx}">
         <Setter Property="Visibility" Value="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
@@ -17,7 +19,7 @@
         <Setter Property="Command" Value="{Binding Command}" />
         <Setter Property="b:MenuBehavior.UpdateCommandUiItems" Value="True" />
         <Style.Triggers>
-            <DataTrigger Binding="{Binding IconSource}" Value="{x:Null}">
+            <DataTrigger Binding="{Binding PathData}" Value="{x:Null}">
                 <Setter Property="Icon" Value="{x:Null}" />
             </DataTrigger>
         </Style.Triggers>

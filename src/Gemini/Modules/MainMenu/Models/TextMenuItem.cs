@@ -14,10 +14,8 @@ namespace Gemini.Modules.MainMenu.Models
             get { return _menuDefinition.Text; }
 		}
 
-        public override Uri IconSource
-	    {
-            get { return _menuDefinition.IconSource; }
-	    }
+        public override string PathData => _menuDefinition.PathData;
+        public override string PathDataForegroundName => _menuDefinition.PathDataForegroundName;
 
         public override string InputGestureText
 		{

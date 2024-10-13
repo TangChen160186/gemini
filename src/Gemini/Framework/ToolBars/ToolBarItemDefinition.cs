@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Input;
 using Gemini.Framework.Commands;
 
@@ -26,7 +26,8 @@ namespace Gemini.Framework.ToolBars
         }
 
         public abstract string Text { get; }
-        public abstract Uri IconSource { get; }
+        public abstract string PathData { get; }
+        public abstract string PathDataForegroundName { get; }
         public abstract KeyGesture KeyGesture { get; }
         public abstract CommandDefinitionBase CommandDefinition { get; }
 

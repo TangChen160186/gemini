@@ -12,8 +12,9 @@ namespace Gemini.Framework.Menus
         private readonly KeyGesture _keyGesture;
 
         public override string Text => _commandDefinition.Text;
+        public override string PathData => _commandDefinition.PathData;
+        public override string PathDataForegroundName => _commandDefinition.PathDataForegroundName;
 
-        public override Uri IconSource => _commandDefinition.IconSource;
 
         public override KeyGesture KeyGesture => _keyGesture;
 

@@ -10,18 +10,20 @@ namespace Gemini.Framework.Menus
         private readonly Uri _iconSource;
 
         public override string Text => _text;
+        public override string PathData { get; }
+        public override string PathDataForegroundName { get; }
 
-        public override Uri IconSource => _iconSource;
 
         public override KeyGesture KeyGesture => null;
 
         public override CommandDefinitionBase CommandDefinition => null;
 
-        public TextMenuItemDefinition(MenuItemGroupDefinition group, int sortOrder, string text, Uri iconSource = null)
+        public TextMenuItemDefinition(MenuItemGroupDefinition group, int sortOrder, string text, string pathData = null,string pathDataForegroundName = null)
             : base(group, sortOrder)
         {
             _text = text;
-            _iconSource = iconSource;
+            PathData = pathData;
+            PathDataForegroundName = pathDataForegroundName;
         }
     }
 }

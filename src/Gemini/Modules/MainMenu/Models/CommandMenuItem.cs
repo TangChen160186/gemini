@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Input;
@@ -16,7 +16,22 @@ namespace Gemini.Modules.MainMenu.Models
 
         public override string Text => _command.Text;
 
-        public override Uri IconSource => _command.IconSource;
+        public override string PathData
+        {
+            get
+            {
+                return _command.PathData;
+            }
+        }
+
+        public override string PathDataForegroundName
+        {
+            get
+            {
+                return _command.PathDataForegroundName;
+            }
+        }
+
 
         public override string InputGestureText => _keyGesture == null
             ? string.Empty
@@ -84,7 +99,8 @@ namespace Gemini.Modules.MainMenu.Models
                     break;
 
                 case nameof(_command.Text):
-                case nameof(_command.IconSource):
+                case nameof(_command.PathData):
+                case nameof(_command.PathDataForegroundName):
                     NotifyOfPropertyChange(e.PropertyName);
                     break;
             }

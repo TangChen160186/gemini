@@ -14,14 +14,23 @@ namespace Gemini.Framework.Commands
             get { return "[NotUsed]"; }
         }
 
-        public override sealed Uri IconSource
-        {
-            get { return null; }
-        }
 
         public override sealed bool IsList
         {
             get { return true; }
+        }
+
+        public override string PathData
+        {
+            get { return null; }
+        }
+
+        public override string PathDataForegroundName
+        {
+            get
+            {
+                return null;
+            }
         }
     }
 }

@@ -15,7 +15,8 @@ namespace Gemini.Framework.Menus
 
         public override string Text => _text;
 
-        public override Uri IconSource => null;
+        public override string PathData => null;
+        public override string PathDataForegroundName=>null;
 
         public override KeyGesture KeyGesture => null;
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
@@ -26,12 +26,16 @@ namespace Gemini.Modules.ToolBars.Models
             get { return _toolBarItem.Display; }
         }
 
-	    public Uri IconSource
-	    {
-	        get { return _command.IconSource; }
-	    }
+	    public string PathDataForegroundName
+        {
+	        get { return _command.PathDataForegroundName; }
+        }
+        public string PathData
+        {
+            get { return _command.PathData; }
+        }
 
-	    public string ToolTip
+        public string ToolTip
 	    {
 	        get
 	        {
@@ -80,8 +84,11 @@ namespace Gemini.Modules.ToolBars.Models
                 case nameof(Framework.Commands.Command.Text):
                     NotifyOfPropertyChange(nameof(Text));
                     break;
-                case nameof(Framework.Commands.Command.IconSource):
-                    NotifyOfPropertyChange(nameof(IconSource));
+                case nameof(Framework.Commands.Command.PathData):
+                    NotifyOfPropertyChange(nameof(PathData));
+                    break;
+                case nameof(Framework.Commands.Command.PathDataForegroundName):
+                    NotifyOfPropertyChange(nameof(PathDataForegroundName));
                     break;
                 case nameof(Framework.Commands.Command.ToolTip):
                     NotifyOfPropertyChange(nameof(ToolTip));

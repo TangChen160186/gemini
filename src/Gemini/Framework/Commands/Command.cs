@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Caliburn.Micro;
 
 namespace Gemini.Framework.Commands
@@ -11,7 +11,8 @@ namespace Gemini.Framework.Commands
         private bool _checked;
         private string _text;
         private string _toolTip;
-        private Uri _iconSource;
+        private string _pathData;
+        private string _pathDataForegroundName;
 
         public CommandDefinitionBase CommandDefinition
         {
@@ -48,11 +49,17 @@ namespace Gemini.Framework.Commands
             set { Set(ref _toolTip, value); }
         }
 
-        public Uri IconSource
+        public string PathData
         {
-            get { return _iconSource; }
-            set { Set(ref _iconSource, value); }
+            get { return _pathData; }
+            set { Set(ref _pathData, value); }
         }
+        public string PathDataForegroundName
+        {
+            get { return _pathDataForegroundName; }
+            set { Set(ref _pathDataForegroundName, value); }
+        }
+ 
 
         public object Tag { get; set; }
 
@@ -61,7 +68,8 @@ namespace Gemini.Framework.Commands
             _commandDefinition = commandDefinition;
             Text = commandDefinition.Text;
             ToolTip = commandDefinition.ToolTip;
-            IconSource = commandDefinition.IconSource;
+            PathData = commandDefinition.PathData;
+            PathDataForegroundName = commandDefinition.PathDataForegroundName;
         }
     }
 }

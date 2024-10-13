@@ -6,6 +6,14 @@
         <ResourceDictionary Source="Controls/Merged.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <!--Menu Icon-->
+    
+    <SolidColorBrush x:Key="SaveAllFilesBrush" Color="#4eb2ff"/>
+    <SolidColorBrush x:Key="SaveFileBrush" Color="#4eb2ff"/>
+    <SolidColorBrush x:Key="UndoBrush" Color="#d1d1d1"/>
+    <SolidColorBrush x:Key="RedoBrush" Color="#d1d1d1"/>
+    <SolidColorBrush x:Key="OpenFileBrush" Color="#e6c984"/>
+    <SolidColorBrush x:Key="FullScreenBrush" Color="#d1d1d1"/> 
 
     <!-- Menu -->
     <SolidColorBrush x:Key="MenuDefaultBackground" Color="#191b1d" />
