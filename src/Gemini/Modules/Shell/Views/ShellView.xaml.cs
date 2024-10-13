@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
+using System.Windows.Input;
 using Gemini.Framework;
 using Gemini.Modules.Shell.ViewModels;
 
@@ -43,6 +44,11 @@ namespace Gemini.Modules.Shell.Views
                 window.Icon = mainWindowIcon;
                 window.ShowInTaskbar = showFloatingWindowsInTaskbar;
             }
+        }
+
+        private void Manager_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ((FrameworkElement)sender).MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
         }
     };
 }

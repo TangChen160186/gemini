@@ -8,9 +8,12 @@
              xmlns:toolbarcontrols="clr-namespace:Gemini.Modules.ToolBars.Controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:reskeys="clr-namespace:AvalonDock.Themes.VS2013.Themes;assembly=AvalonDock.Themes.VS2013"
              mc:Ignorable="d"
              d:DesignHeight="800" d:DesignWidth="600">
     <UserControl.Resources>
+
+
         <ResourceDictionary>
             <converters:NullableValueConverter x:Key="NullableValueConverter" />
             <converters:TruncateMiddleConverter x:Key="TruncateMiddleConverter" />
@@ -30,6 +33,8 @@
                     </DataTrigger>
                 </DataTemplate.Triggers>
             </DataTemplate>
+
+
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -48,7 +53,8 @@
                              DocumentHeaderTemplate="{StaticResource IconTitleTemplate}"
                              AnchorableHeaderTemplate="{StaticResource IconTitleTemplate}"
                              DocumentTitleTemplate="{StaticResource IconTitleTemplate}"
-                             AnchorableTitleTemplate="{StaticResource IconTitleTemplate}">
+                             AnchorableTitleTemplate="{StaticResource IconTitleTemplate}"
+                             MouseDown="Manager_OnMouseDown">
             <xcad:DockingManager.LayoutItemTemplateSelector>
                 <controls:PanesTemplateSelector>
                     <controls:PanesTemplateSelector.DocumentTemplate>

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
@@ -7,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
+using ControlzEx.Theming;
 using Gemini.Framework;
 using Gemini.Framework.Services;
 using Gemini.Framework.Themes;
@@ -100,12 +102,66 @@ namespace Gemini.Modules.Shell.ViewModels
             _tools = new BindableCollection<ITool>();
         }
 
+        private ResourceDictionary _applicationResourceDictionary;
         protected override void OnViewLoaded(object view)
         {
             foreach (var module in _modules)
                 foreach (var globalResourceDictionary in module.GlobalResourceDictionaries)
                     Application.Current.Resources.MergedDictionaries.Add(globalResourceDictionary);
 
+            _themeManager.CurrentThemeChanged += (sender, args) =>
+            {
+                if (_applicationResourceDictionary == null)
+                {
+                    _applicationResourceDictionary = new ResourceDictionary();
+                    Application.Current.Resources.MergedDictionaries.Add(_applicationResourceDictionary);
+                }
+
+                _applicationResourceDictionary.BeginInit();
+                _applicationResourceDictionary.MergedDictionaries.Clear();
+
+                foreach (var module in _modules)
+                {
+                    var currentThemeName = _themeManager.CurrentTheme.Name;
+                    var index = module.ThemeResourceDictionaries.ToList().FindLastIndex(e => e.Key ==
+                        currentThemeName);
+
+                    var index1 = module.AutoLoadThemeResourceDictionaries.ToList().FindLastIndex(e => e.Key ==
+                        currentThemeName);
+                    if (index!=-1 || index1!=-1)
+                    {
+                        List<Uri> uris = [];
+                        List<Uri> uris1 = [];
+                      
+                        if (index != -1)
+                        {
+                            uris.AddRange(module.ThemeResourceDictionaries.ToList()[index].Value.ToList());
+                        }
+                        if (index1 != -1)
+                        {
+                             uris1.AddRange(module.AutoLoadThemeResourceDictionaries.ToList()[index1].Value.ToList());
+                        }
+                        uris1 = uris1.DistinctBy(e => uris.Contains(e)).ToList();
+          
+                        foreach (var uri in uris1)
+                        {
+                            _applicationResourceDictionary.MergedDictionaries.Add(new ResourceDictionary()
+                            {
+                                Source = uri
+                            });
+                        }
+                        foreach (var uri in uris)
+                        {
+                            _applicationResourceDictionary.MergedDictionaries.Add(new ResourceDictionary()
+                            {
+                                Source = uri
+                            });
+                        }
+                    }
+                }
+                _applicationResourceDictionary.EndInit();
+
+            };
             foreach (var module in _modules)
                 module.PreInitialize();
             foreach (var module in _modules)

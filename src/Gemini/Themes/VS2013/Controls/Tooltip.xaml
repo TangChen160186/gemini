@@ -16,8 +16,7 @@
                             Width="{TemplateBinding Width}"
                             Height="{TemplateBinding Height}" 
                             Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            CornerRadius="4">
+                            BorderBrush="{TemplateBinding BorderBrush}">
                         <ContentPresenter Margin="4" 
                                           HorizontalAlignment="Left" 
                                           VerticalAlignment="Top" />

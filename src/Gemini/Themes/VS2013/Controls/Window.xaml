@@ -11,11 +11,13 @@
         <Setter Property="TitleCharacterCasing" Value="Normal" />
         <Setter Property="GlowBrush" Value="{DynamicResource MainWindowActiveBorder}" />
         <Setter Property="NonActiveGlowBrush" Value="{DynamicResource MainWindowInactiveBorder}" />
+  
         <Setter Property="TitleTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Left"   Margin="8,2">
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="8,2">
                         <TextBlock HorizontalAlignment="Center"
+                                   Foreground="{DynamicResource MainWindowCaptionTextForeground}"
                                    VerticalAlignment="Center"
                                    TextAlignment="Center"
                                    Margin="4"
@@ -24,13 +26,18 @@
                         <Grid.Style>
                             <Style TargetType="Grid">
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=controls:MetroWindow},
-                                                 Path=IsActive}" Value="True">
-                                        <Setter Property="Background" Value="{DynamicResource MainWindowCaptionTextActiveBackground}" />
+                                    <DataTrigger
+                                        Binding="{Binding RelativeSource={RelativeSource AncestorType=controls:MetroWindow},
+                                                 Path=IsActive}"
+                                        Value="True">
+                                        <Setter Property="Background"
+                                                Value="{DynamicResource MainWindowCaptionTextActiveBackground}" />
                                     </DataTrigger>
-                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=controls:MetroWindow},
-                                                 Path=IsActive}" Value="False">
-                                        <Setter Property="Background" Value="Transparent" />
+                                    <DataTrigger
+                                        Binding="{Binding RelativeSource={RelativeSource AncestorType=controls:MetroWindow},
+                                                 Path=IsActive}"
+                                        Value="False">
+                                        <Setter Property="Background" Value="{DynamicResource MainWindowCaptionTextInactiveBackground}" />
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
@@ -41,7 +48,6 @@
             </Setter.Value>
 
         </Setter>
-
 
 
     </Style>

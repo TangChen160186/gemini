@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FileExitCommandText" xml:space="preserve">
-    <value>退出 (_X)</value>
-  </data>
   <data name="EditMenuText" xml:space="preserve">
     <value>编辑 (_E)</value>
   </data>
@@ -140,6 +137,9 @@
   </data>
   <data name="FileCloseCommandToolTip" xml:space="preserve">
     <value>关闭</value>
+  </data>
+  <data name="FileExitCommandText" xml:space="preserve">
+    <value>退出 (_X)</value>
   </data>
   <data name="FileExitCommandToolTip" xml:space="preserve">
     <value>退出</value>
@@ -267,19 +267,22 @@
   <data name="AdvancedSliderCommitErrorFormat" xml:space="preserve">
     <value>设置的数值失败：{0}</value>
   </data>
+  <data name="AllSupportedFiles" xml:space="preserve">
+    <value>所有支持的文件</value>
+  </data>
+  <data name="AllFiles" xml:space="preserve">
+    <value>所有文件</value>
+  </data>
+  <data name="SaveChangesBeforeClosingMessage" xml:space="preserve">
+    <value>在关闭前保存更改到 {0} “{1}” ?</value>
+  </data>
   <data name="ViewFullScreenCommandText" xml:space="preserve">
     <value>全屏</value>
   </data>
   <data name="ViewFullScreenCommandToolTip" xml:space="preserve">
     <value>全屏</value>
   </data>
-  <data name="AllFiles" xml:space="preserve">
-    <value>所有文件</value>
-  </data>
-  <data name="AllSupportedFiles" xml:space="preserve">
-    <value>所有支持的文件</value>
-  </data>
-  <data name="SaveChangesBeforeClosingMessage" xml:space="preserve">
-    <value>在关闭前保存更改到 {0} “{1}” ?</value>
+  <data name="ThemeMiodaIbukiDarkName" xml:space="preserve">
+    <value>MiodaIbukiDarkTheme</value>
   </data>
 </root>

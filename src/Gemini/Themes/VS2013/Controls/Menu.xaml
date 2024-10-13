@@ -195,6 +195,8 @@
             <Trigger Property="IsHighlighted" Value="true">
                 <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuPopupHoveredItemBackground}" />
                 <Setter TargetName="IconContainer" Property="Background" Value="{DynamicResource MenuPopupHoveredItemBackground}" />
+                <Setter TargetName="CheckMark" Property="Stroke" Value="{DynamicResource MenuPopupHoveredCheckmark}" />
+
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 <Setter Property="Foreground" Value="{DynamicResource DisabledMenuItemBrush}" />
@@ -335,7 +337,7 @@
                             <EventTrigger RoutedEvent="Rectangle.Loaded">
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Duration="0:0:0.2" To="1" Storyboard.TargetProperty="Opacity"
+                                        <DoubleAnimation Duration="0:0:0.1" To="1" Storyboard.TargetProperty="Opacity"
                                                          Storyboard.TargetName="Menu" />
                                     </Storyboard>
                                 </BeginStoryboard>
