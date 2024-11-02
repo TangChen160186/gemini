@@ -17,7 +17,8 @@
     <behaviors:Interaction.Behaviors>
         <geminibehaviors:WindowOptionsBehavior ShowIcon="False"
                                                ShowMinimizeBox="False"
-                                               ShowMaximizeBox="False" />
+                                               ShowMaximizeBox="False"
+                                               />
     </behaviors:Interaction.Behaviors>
     <Grid Margin="12">
         <Grid.ColumnDefinitions>
